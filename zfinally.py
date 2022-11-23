@@ -32,7 +32,7 @@ def read_sentence_emotions(sentences_list):
     for sentence in sentences_list:
         emotion = te.get_emotion(sentence)
         emotional_list.append(emotion)
-        return emotional_list
+    return emotional_list
     
 def accurate_emotions(emotional_list):
     '''
