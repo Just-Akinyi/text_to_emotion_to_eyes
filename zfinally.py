@@ -4,7 +4,7 @@ import re
 import nltk
 
 podcast_file = "data.txt"
-nltk.download('averaged_perceptron_tagger')
+nltk.download('omw-1.4')
 
 def break_down(podcast_file):
     '''
@@ -45,10 +45,10 @@ def accurate_emotions(emotional_list):
     '''
     pure_emotions = []
     for states in emotional_list:
-        for emotional_value in states.value():
+        for emotional_value in states.values():
         # check if the emotion has bonus and keep its name
             if round(emotional_value) > 0:
-                pure_emotions.append(states.key())
+                pure_emotions.append(states.keys())
     return pure_emotions
 
 def show_on_face(pure_emotions):

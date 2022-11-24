@@ -1,10 +1,10 @@
 import text2emotion as te
 import re
+from zutils import Is_angry, Is_fear,Is_happy, Is_neutral,Is_sad,Is_surprised
 import nltk
-
+# nltk.data.path
 podcast_file = "data.txt"
-nltk.download('averaged_perceptron_tagger')
-
+nltk.download('omw-1.4')
 with open(podcast_file, encoding="utf-8") as pod_file:
     file_data = pod_file.read()
 
@@ -21,40 +21,21 @@ for sentence in sentences_list:
     emotion = te.get_emotion(sentence)
     emotional_list.append(emotion)
     print(emotional_list)
-
+print('-------------------------------------------------')
 # so far we have two lists 1 for sentences another for their emotions
 pure_emotions = []
 for states in emotional_list:
-    for emotional_value in states.value():
+    for emotional_value in states.values():
         # check if the emotion has bonus and keep its name
         if round(emotional_value) > 0:  # what if they tie
-            pure_emotions.append(states.key())
+            pure_emotions.append(states.keys())
             print(pure_emotions)
 
 # lets show emotions on face now ['sad', 'happy', 'angry']
 #the library supports 5 emotions
 for mood in pure_emotions:
+    print('emotion1')
     if mood == "Happy":
-        pass
-        # put the eye
-        # put brows
-    elif mood == "Angry":
-        pass
-        # put the eye
-        # put brows
-    elif mood == "Surprise":
-        pass
-        # put the eye
-        # put brows
-    elif mood == "Sad":
-        pass
-        # put the eye
-        # put brows
-    elif mood == "Fear":
-        pass
-        # put the eye
-        # put brows
-    else:
-        print('completed')
-        # normal eye
-        # normal brows
+        print('happy')
+        Is_happy()
+print('the end')
