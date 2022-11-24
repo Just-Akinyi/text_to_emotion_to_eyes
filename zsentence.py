@@ -9,6 +9,14 @@ import time
 nltk.download('omw-1.4')
 
 def removing_not(sentence):
+    '''
+    Takes in a sentence, replaces negative worlds
+    Args:
+        sentence - original sentence
+    Returns:
+        refined_sentence - sentence without negatives
+                           (to get accurate emotion from it)
+    '''
     d = {'not sad': 'Happy', 'not bad': 'Happy', 'not boring': 'Happy', 'not wrong': 'Happy', 'not bored': 'Happy',
          'not jealous': 'Happy', 'not happy': 'Sad', 'not well': 'Sad', 'not suitable': 'Angry', 'not right': 'Angry',
          'not good': 'Sad', 'not excited': 'Angry', 'not funny ': 'Sad', 'not  kind': 'Sad', 'not proud': 'Angry',
